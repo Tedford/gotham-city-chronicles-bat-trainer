@@ -7,11 +7,13 @@ namespace CodeFactory
 {
     public class EnemyDeck
     {
-        private readonly IEnemyActions _actions;
+        private readonly IVirtualOverlord _actions;
 
-        public EnemyDeck(IEnemyActions actions)
+        public EnemyDeck(IVirtualOverlord actions)
         {
             _actions = actions ?? throw new ArgumentNullException(nameof(actions));
         }
+
+
     }
 }
