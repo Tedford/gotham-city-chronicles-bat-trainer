@@ -53,16 +53,9 @@ namespace CodeFactory
         private IEnumerable<Action> LoadActions()
         {
             var asm = Assembly.GetExecutingAssembly();
-            using var stream = asm.GetManifestResourceStream(asm.GetManifestResourceNames().First(i => i.Contains("rules-1.5.json")));
+            using var stream = asm.GetManifestResourceStream(asm.GetManifestResourceNames().First(i => i.Contains("actions-1.5.json")));
             using var reader = new StreamReader(stream);
             return JsonConvert.DeserializeObject<Action[]>(reader.ReadToEnd());
-            //foreach (var match in asm.GetManifestResourceNames().Select(i => Regex.Match(i, @"^.+action(?<id>\d+).png", RegexOptions.IgnoreCase)).Where(i => i.Success))
-            //{
-            //    using var stream = asm.GetManifestResourceStream(match.Value);
-            //    var buffer = new byte[stream.Length];
-            //    stream.Read(buffer, 0, buffer.Length);
-            //    yield return new Action { Id = int.Parse(match.Groups["id"].Value), Image = buffer, Rules = "" };
-            //}
         }
 
         public void Reset(int seed = 0)

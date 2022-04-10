@@ -3,9 +3,38 @@
 @{
     ViewData["Title"] = "Bat Overlord";
 }
+@section Scripts {
+    <style>
+
+        #table {
+            width: 100%;
+            display: table;
+        }
+
+        #table-body {
+            display: table-row-group;
+        }
+
+        #table-row {
+            display:table-row;
+        }
+
+        #table-cell {
+            display: table-cell;
+        }
+    </style>
+}
+
 
 <div>
-    <h3>Turn @Model.Turn</h3>
+    <img src="@Model.GetTurnTrack()" />
+</div>
+
+    <div class="table">
+        
+    </div>
+<div>
+    
     <img src="@Model.CurrentActionUri" />
 </div>
 <form method="post">
@@ -17,10 +46,10 @@
 
 <div>
     <h2>History</h2>
-    @foreach( var item in Model.History)
+    @foreach (var item in Model.History.Reverse())
     {
         <table>
-            @Html.DisplayFor(x=>item, "HistoryItem")
+            @Html.DisplayFor(x => item, "HistoryItem")
         </table>
     }
 </div>

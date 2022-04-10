@@ -1,0 +1,29 @@
+﻿@model CodeFactory.Pages.ActivationModel
+@{
+}
+<div width="25%">
+    <img href="@Model.UnitUri" />
+</div>
+<div>
+    <table>
+        <tr>
+            <td>Activation</td>
+            <td>@Model.Number</td>
+        </tr>
+        <tr>
+            <td>Tile</td>
+            <td>@Model.Tile</td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <ul>
+                    @foreach (var action in Model.Actions)
+                    {
+                        <li>action</li>
+                    }
+                </ul>
+            </td>
+        </tr>
+    </table>
+</div>
+

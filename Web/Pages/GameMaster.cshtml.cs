@@ -12,6 +12,8 @@ namespace CodeFactory.Pages
     public class GameMasterModel : PageModel
     {
         private readonly IVirtualOverlord _overlord;
+        private string palette = "white";
+        private int scale = 33;
 
         public Uri CurrentActionUri { get; private set; }
 
@@ -47,5 +49,7 @@ namespace CodeFactory.Pages
             Current = _overlord.Next();
             CurrentActionUri = new Uri($"data:image/png;base64,{Convert.ToBase64String(Current.Image)}");
         }
+
+        public string GetTurnTrack() => $"images/turn-board-{palette}-{Turn}-{scale}.png";
     }
 }
